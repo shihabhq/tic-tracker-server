@@ -1,6 +1,8 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-interface IStat extends Document {
+export interface IStat extends Document {
+  name: string;
+  email: string;
   played: number;
   lose: number;
   won: number;
@@ -8,6 +10,8 @@ interface IStat extends Document {
 }
 
 const StatSchema = new Schema<IStat>({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
   played: { type: Number, default: 0 },
   lose: { type: Number, default: 0 },
   won: { type: Number, default: 0 },
